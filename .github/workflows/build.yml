@@ -23,11 +23,9 @@ jobs:
         with:
           channel: 'stable'
 
-      - name: Fix permissions
-        run: chmod +x android/gradlew || true
-
-      - name: Re-generate Android Wrapper
+      - name: Clean and Re-create Android Project
         run: |
+          rm -rf android
           flutter create --platforms=android .
 
       - name: Install Dependencies
